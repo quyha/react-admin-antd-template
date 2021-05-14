@@ -1,0 +1,197 @@
+@import '../../styles/variables.less';
+
+@layout-header-height: 4.375rem;
+@layout-sider-width: 240px;
+@topbar-dropdown-width: 360px;
+@topbar-dropdown-radius: 5px;
+@topbar-dropdown-font-size: 0.875rem;
+
+.layout-logo {
+    height: @layout-header-height;
+    padding: 0 0.625rem;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+
+    h3 {
+        line-height: @layout-header-height;
+        font-size: 21px;
+        font-weight: 300;
+        line-height: @layout-header-height;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgb(249, 249, 249);
+        display: block;
+    }
+}
+
+.layout-sider {
+    &:not(.is-broken) {
+        overflow: auto;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+    }
+}
+
+.layout-wrap-content {
+    margin-left: @layout-sider-width;
+    min-height: 100vh;
+    
+    &.is-broken {
+        margin-left: 0;
+    }
+}
+
+.layout-content {
+    margin-top: @layout-header-height;
+}
+
+.layout-menu {
+    padding-top: 2.1875rem;
+}
+
+.layout-header {
+    background: #fff;
+    position: fixed;
+    z-index: 1000;
+    width: calc(100% - @layout-sider-width);
+    height: @layout-header-height;
+
+    &.is-broken {
+        width: 100%;
+    }
+
+    &-badge {
+        top: 7px;
+        cursor: pointer;
+    }
+
+    &-avatar {
+        cursor: pointer;
+    }
+}
+
+.layout-content-background {
+    padding: 1.5rem;
+    min-height: 360px;
+}
+
+.topbar-dropdown {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    max-width: @topbar-dropdown-width;
+    min-width: 160px;
+    flex-shrink: 0;
+    border-radius: @topbar-dropdown-radius;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 10px;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    cursor: pointer;
+    margin: -12px -16px;
+
+    &.is-notifications {
+        width: 360px;
+
+        .topbar-dropdown-body {
+            margin-bottom: 10px;
+            background-color: rgb(249, 249, 249);
+        }
+    }
+
+    &.is-profile {
+        width: 220px;
+        padding: 7px 0px;
+    }
+
+    &-header {
+        border-bottom: 1px solid rgb(241, 241, 241);
+        margin-bottom: 0px;
+        padding: 15px 30px;
+        width: 100%;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-transform: uppercase; 
+
+        h3 {
+            font-size: @topbar-dropdown-font-size;
+            margin: 0;
+        }
+    }
+
+    &-body {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-item {
+        padding: 15px 30px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        text-align: left;
+        width: 100%;
+        border-bottom: 1px solid rgb(235, 235, 235);
+        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+
+        &:hover {
+            background-color: rgb(241, 241, 241);
+        }
+
+        h5 {
+            font-size: @topbar-dropdown-font-size;
+            font-weight: 500;
+            color: rgb(50, 51, 50);
+            margin: 0;
+        }
+
+        p {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: rgb(151, 151, 151);
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin: 0;
+        }
+    }
+
+    &-viewall {
+        font-weight: 500;
+        color: rgb(151, 151, 151);
+        padding: 10px 15px 20px;
+        display: flex;
+        text-decoration: none;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+
+        &:hover {
+            color: @color-hover;
+        }
+    }
+
+    &-link {
+        font-size: @topbar-dropdown-font-size;
+        color: rgb(89, 89, 89);
+        line-height: 1.1;
+        padding: 7px 15px;
+        background-color: transparent;
+        text-decoration: none;
+        display: flex;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+
+        &:hover {
+            background-color: rgb(245, 246, 248);
+        }
+    }
+}
